@@ -34,7 +34,7 @@ echo -e "\nBacked up local database.\n"
 # Sync database and import
 echo -e "\nSyncing database down...\n"
 
-ssh $ssh_string "mysqldump $remote_db_name --quote-names --opt --hex-blob --add-drop-database -h$remote_db_host -u$remote_db_username -p\"$remote_db_password\"" | $mysql_path -D$local_db_name -u$local_db_username -p$local_db_password
+ssh $ssh_string "mysqldump $remote_db_name --quote-names --opt --hex-blob --add-drop-database -h$remote_db_host -u$remote_db_username -p'$remote_db_password'" | $mysql_path -D$local_db_name -u$local_db_username -p$local_db_password
 echo -e "Database synced and imported.\n"
 
 # Sync assets
