@@ -25,6 +25,12 @@ fi
 : ${local_db_username:='root'}
 : ${local_db_password:='root'}
 
+# Backup local database
+echo -e "\nBacking up local database...\n"
+
+mysqldump $local_db_name --quote-names --opt --hex-blob --add-drop-database -u$local_db_username -p$local_db_password > "$local_db_name.$(date +%F_%R).sql"
+echo -e "\nBacked up local database.\n"
+
 # Sync database and import
 echo -e "\nSyncing database down...\n"
 
