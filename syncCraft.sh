@@ -14,7 +14,7 @@ function error_exit
 
 # Check for, and load, local syncCraft.cfg
 if [ -r ./syncCraft.cfg ]; then
-	. syncCraft.cfg
+	. ./syncCraft.cfg
 else
 	error_exit "No syncCraft.cfg found in the current directory."
 fi
